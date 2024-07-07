@@ -82,7 +82,7 @@ function playGame() {
     if (humanScore > computerScore){
         console.log("Congratulations! You are the overall winner!");
     } else if (humanScore < computerScore) {
-        console.log("The computer is te overall winner. Better luck next time!");
+        console.log("The computer is the overall winner. Better luck next time!");
     } else {
         console.log("It's an overall tie!");
     }
@@ -90,3 +90,4 @@ function playGame() {
 
 //start the game
 playGame();
+ 

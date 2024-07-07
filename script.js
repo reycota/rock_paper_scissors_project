@@ -17,11 +17,6 @@ function getHumanChoice(){
     return choice;
 }
 
-
-
-let humanScore = 0;
-let computerScore = 0;
-
 function playRound(humanChoice, computerChoice){
     //step 1: make the humanChoice case-insensitive
     humanChoice = humanChoice.toLowerCase();
@@ -36,35 +31,27 @@ function playRound(humanChoice, computerChoice){
     //step 3: validate the human choice
     if (!choicesMap[humanChoice]) {
         console.log("Invalid choice! Please choose Rock, Paper, or Scissors.");
-        return;
+        return null;
     }
 
     //step 4: Standardize the humanChoice for comparison
     humanChoice = choicesMap[humanChoice];
 
-    //step 5: determine the winner and increment the scores
+    //step 5: determine the winner and return the result
     if (humanChoice === computerChoice) {
-        console.log("It's a tie: Both chose ${humanChoice}");
+        return "tie";
     } else if(
         (humanChoice === "Rock" && computerChoice === "Scissors") ||
         (humanChoice === "Paper" && computerChoice === "Rock") ||
         (humanChoice === "Scissors" && computerChoice === "Paper")
     ) {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-        humanScore++;
+        return "human";
     } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-        computerScore++;
+        return "computer";
     }
 
-    //step 6: Log the current scores
-    console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`);
 }
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-playRound(humanChoice, computerChoice);
- 
 //function to play 5 rounds of the game
 function playGame() {
     let humanScore = 0; 
@@ -88,5 +75,18 @@ function playGame() {
         }
 
         //log the current scores after each round
+        console.log(`Current Score -> Human: ${humanScore}, Computer: ${computerScore}`);
+    }
+
+    //Declare the overall winner
+    if (humanScore > computerScore){
+        console.log("Congratulations! You are the overall winner!");
+    } else if (humanScore < computerScore) {
+        console.log("The computer is te overall winner. Better luck next time!");
+    } else {
+        console.log("It's an overall tie!");
     }
 }
+
+//start the game
+playGame();

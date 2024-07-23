@@ -12,15 +12,6 @@ function getComputerChoice(){
     return choices[randomIndex];
 }
 
-/*function getHumanChoice(){
-    //step 1: prompt the user to enter their choice
-    const choice = prompt("Please select your choice (Rock, Paper, or Scissors):");
-
-    //step 2: return the user's choice
-    return choice;
-} 
-*/
-
 function playRound(humanChoice, computerChoice){
     //step 1: make the humanChoice case-insensitive
     humanChoice = humanChoice.toLowerCase();
@@ -100,44 +91,6 @@ document.getElementById(`scissors`).addEventListener(`click`,() => handleButtonC
 
 const resultDiv = document.getElementById(`result`);
 const scoreDiv = document.getElementById(`score`);
-
-/*
-//function to play 5 rounds of the game
-function playGame() {
-    let humanScore = 0; 
-    let computerScore =0;
-
-    for (let i = 0; i<5; i++){
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-
-        const result = playRound(humanChoice, computerChoice);
-        if (result === "human") {
-            humanScore++;
-            console.log(`Round ${i+1}: You win! ${humanChoice} beats ${computerChoice}`);
-        } else if (result === "computer") {
-            computerScore++;
-            console.log(`Round ${i+1}: You lose! ${computerChoice} beats ${humanChoice}`);
-        } else if (result === "tie") {
-            console.log(`Round ${i+1}: It's a tie! Both chose ${humanChoice}`);
-        } else {
-            console.log(`Round ${i+1}: Invalid choice, round skipped.`);
-        }
-
-        //log the current scores after each round
-        console.log(`Current Score -> Human: ${humanScore}, Computer: ${computerScore}`);
-    }
-
-    //Declare the overall winner
-    if (humanScore > computerScore){
-        console.log("Congratulations! You are the overall winner!");
-    } else if (humanScore < computerScore) {
-        console.log("The computer is the overall winner. Better luck next time!");
-    } else {
-        console.log("It's an overall tie!");
-    }
-}
-*/
 
 //start the game
 playGame();
